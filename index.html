@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SHAM SCHOOL — Фонд поддержки учеников</title>
+    <meta
+      name="description"
+      content="Официальная страница фонда поддержки учеников творческой школы SHAM SCHOOL: миссия, работы учеников, как стать попечителем, отчёты и контакты."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* фиолет + лайм */
+        --purple: #6a35ff;
+        --purple-800: #4d22d8;
+        --purple-900: #3a18aa;
+        --lime: #c7ff2e;
+        --ink: #0b0b13;
+        --muted: #8b8da8;
+        --paper: #ffffff;
+        --card: #11111a;
+
+        /* градиент без оранжевого */
+        --grad-a: #6a35ff;
+        --grad-b: #4d22d8;
+        --grad-c: #3a18aa;
+
+        --radius-xl: 20px;
+        --radius-lg: 14px;
+        --radius-md: 10px;
+        --shadow-1: 0 8px 30px rgba(0, 0, 0, 0.12);
+        --shadow-2: 0 20px 60px rgba(0, 0, 0, 0.22);
+        --maxw: 1160px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--paper);
+        background: var(--purple);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* вместо space-between */
+        gap: 14px;
+        height: 80px;
+      }
+      .nav nav {
+        margin-left: auto;
+      }
+
+      /* мобильный режим */
+      @media (max-width: 950px) {
+        nav {
+          display: none;
+        } /* прячем весь nav */
+        .menu-toggle {
+          display: block;
+          margin-left: auto; /* прижимаем кнопку вправо */
+        }
+      }
+
+      .navigation-menu {
+        display: flex;
+        align-items: center;
+      }
+      @media (max-width: 950px) {
+        .navigation-menu {
+          display: none;
+        }
+      }
+      .container {
+        max-width: var(--maxw);
+        margin-inline: auto;
+        padding-inline: 20px;
+      }
+      .grid {
+        display: grid;
+        gap: 20px;
+      }
+      .btn {
+        display: inline-block;
+        background: var(--lime);
+        color: #1a1a1a;
+        padding: 12px 18px;
+        border-radius: 999px;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+        text-decoration: none;
+        box-shadow: var(--shadow-1);
+        transition: transform 0.15s ease, filter 0.15s ease;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        filter: brightness(0.95);
+      }
+      .btn.ghost {
+        background: transparent;
+        color: var(--paper);
+        border: 2px solid rgba(255, 255, 255, 0.28);
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        font-weight: 700;
+      }
+      .muted {
+        color: #e9e9f7;
+        opacity: 0.8;
+      }
+      .card {
+        background: rgba(10, 10, 20, 0.45);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-1);
+      }
+
+      /* ---------- Header (ужатая версия) ---------- */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: saturate(140%) blur(6px);
+        background: linear-gradient(
+          180deg,
+          rgba(20, 10, 40, 0.9),
+          rgba(20, 10, 40, 0.6)
+        );
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: var(--paper);
+        white-space: nowrap;
+      }
+      .brand-logo {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--grad-a), var(--grad-b));
+        display: grid;
+        place-items: center;
+        box-shadow: 0 4px 16px rgba(77, 34, 216, 0.45);
+      }
+      .brand-mark {
+        width: 16px;
+        height: 16px;
+        border: 2px solid #fff;
+        border-radius: 3px;
+        transform: rotate(45deg);
+        position: relative;
+      }
+      .brand-mark:before {
+        content: "";
+        position: absolute;
+        inset: -9px;
+        border-top: 2px solid #fff;
+        transform: rotate(-45deg);
+      }
+      .brand-name {
+        font: 800 16px/1.1 "Montserrat", sans-serif;
+        letter-spacing: 0.4px;
+      }
+
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      nav a {
+        color: var(--paper);
+        text-decoration: none;
+        font-weight: 700;
+        opacity: 0.86;
+        font-size: 15px;
+      }
+      nav a:hover {
+        opacity: 1;
+      }
+      /* компактная кнопка только в хедере */
+      .nav .btn {
+        padding: 8px 14px;
+      }
+
+      /* Mobile menu */
+      .menu-toggle {
+        display: none;
+      }
+      @media (max-width: 950px) {
+        nav ul {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .drawer {
+          position: fixed;
+          inset: 60px 0 0 auto;
+          width: 100%;
+          background: rgba(12, 10, 25, 0.98);
+          padding: 20px;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          display: none;
+        }
+        .drawer a {
+          display: block;
+          padding: 14px 6px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        input#menu:checked + label + .drawer {
+          display: block;
+        }
+      }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        position: relative;
+        overflow: hidden;
+      }
+      .hero .bg {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        /* убрали жёлто-оранжевые вспышки, оставили фиолет + немного лайма */
+        background: radial-gradient(
+            1200px 800px at 80% -10%,
+            rgba(199, 255, 46, 0.12),
+            transparent 60%
+          ),
+          radial-gradient(
+            800px 600px at -10% 20%,
+            rgba(106, 53, 255, 0.25),
+            transparent 60%
+          ),
+          linear-gradient(120deg, var(--purple-800), var(--purple));
+      }
+      .hero .container {
+        padding-block: 72px;
+      }
+      .hero-wrap {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .hero h1 {
+        font: 800 44px/1.08 "Montserrat", sans-serif;
+        margin: 0 0 18px;
+      }
+      .hero p {
+        font-size: 18px;
+        margin: 0 0 22px;
+      }
+      .stats {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin: 24px 0;
+      }
+      .stat {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 14px 18px;
+        border-radius: 16px;
+        font-weight: 800;
+      }
+      .phone-mock {
+        min-height: 260px;
+        border-radius: 28px;
+        border: 2px dashed rgba(255, 255, 255, 0.25);
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-weight: 700;
+      }
+
+      @media (max-width: 920px) {
+        .hero .container {
+          padding-block: 56px;
+        }
+        .hero-wrap {
+          grid-template-columns: 1fr;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+      }
+
+      .about {
+        position: relative;
+        padding-block: 48px; /* умеренно, не как hero */
+      }
+
+      .about-card {
+        background: rgba(10, 10, 20, 0.35);
+        border: 1px solid rgba(106, 53, 255, 0.35);
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+        overflow: hidden;
+      }
+
+      /* тонкий акцент сверху карточки */
+      .about-card::before {
+        content: "";
+        display: block;
+        height: 4px;
+        background: linear-gradient(90deg, var(--grad-a), var(--grad-b));
+      }
+
+      .about-wrap {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+        padding: 28px;
+      }
+
+      .eyebrow {
+        font-weight: 800;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #d9d9ff;
+        opacity: 0.8;
+        margin-bottom: 8px;
+      }
+
+      .about-title {
+        font: 800 28px/1.2 "Montserrat", sans-serif;
+        margin: 0 0 10px;
+      }
+      .about-title span {
+        color: var(--lime);
+      }
+
+      .about-subtitle {
+        margin: 0 0 16px;
+        color: #eef;
+        opacity: 0.9;
+        font-size: 16px;
+        max-width: 560px;
+      }
+
+      /* бейджи вместо длинного списка */
+      .about-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        list-style: none;
+        padding: 0;
+        margin: 0 0 16px;
+      }
+      .about-badges li {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        font-weight: 700;
+        font-size: 14px;
+        color: #fff;
+      }
+
+      .about-media .photo {
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .about-media img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* адаптив */
+      @media (max-width: 920px) {
+        .about-wrap {
+          grid-template-columns: 1fr;
+          padding: 22px;
+          gap: 20px;
+        }
+        .about {
+          padding-block: 40px;
+        }
+        .about-title {
+          font-size: 24px;
+        }
+        .about-subtitle {
+          font-size: 15px;
+        }
+      }
+
+      /* ---------- Sections ---------- */
+      section {
+        padding-block: 64px;
+      }
+      section .title {
+        font: 800 32px/1.2 "Montserrat", sans-serif;
+        margin: 0 0 18px;
+      }
+      .subtitle {
+        color: #f2f2ff;
+        opacity: 0.85;
+        margin: -6px 0 28px;
+      }
+
+      /* ---------- Works ---------- */
+      .filters {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+      }
+      .filters .pill {
+        cursor: pointer;
+      }
+      .works.grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .work {
+        position: relative;
+        overflow: hidden;
+      }
+      .work .thumb {
+        aspect-ratio: 16/10;
+        background: repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.08) 0 16px,
+          rgba(255, 255, 255, 0.12) 16px 32px
+        );
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        color: #d7d7ff;
+        font-weight: 800;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .work .meta {
+        padding: 10px 4px;
+      }
+      .work h4 {
+        margin: 8px 0 4px;
+        font-weight: 800;
+      }
+      .work small {
+        opacity: 0.8;
+      }
+      @media (max-width: 1024px) {
+        .works.grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 640px) {
+        .works.grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ---------- Patron ---------- */
+      .donate-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 28px;
+      }
+      .amounts {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .amounts label {
+        background: rgba(255, 255, 255, 0.08);
+        border: 2px solid transparent;
+        padding: 14px;
+        border-radius: 14px;
+        text-align: center;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .amounts input {
+        display: none;
+      }
+      .amounts input:checked + label {
+        border-color: var(--lime);
+        background: rgba(199, 255, 46, 0.15);
+      }
+      .period {
+        display: flex;
+        gap: 10px;
+        margin: 12px 0 6px;
+      }
+      .period label {
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 2px solid rgba(255, 255, 255, 0.18);
+        cursor: pointer;
+      }
+      .period input {
+        display: none;
+      }
+      .period input:checked + label {
+        border-color: var(--lime);
+        background: rgba(199, 255, 46, 0.15);
+      }
+      .qr {
+        min-height: 240px;
+        border-radius: 16px;
+        border: 2px dashed rgba(255, 255, 255, 0.25);
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+      }
+      @media (max-width: 920px) {
+        .donate-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ---------- Reports ---------- */
+      .table-wrap {
+        overflow: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+      }
+      th,
+      td {
+        padding: 14px 16px;
+        text-align: left;
+      }
+      thead th {
+        font: 800 12px "Montserrat", sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.8;
+      }
+      tbody tr {
+        background: rgba(255, 255, 255, 0.06);
+      }
+      tbody tr td:first-child {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+      }
+      tbody tr td:last-child {
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+      }
+
+      /* ---------- About ---------- */
+      .values {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      .value {
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+      }
+      .team.grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .person {
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+      }
+      .avatar {
+        aspect-ratio: 1/1;
+        border-radius: 12px;
+        background: repeating-linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.08) 0 14px,
+          rgba(255, 255, 255, 0.12) 14px 28px
+        );
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        color: #d7d7ff;
+      }
+      .person h4 {
+        margin: 10px 0 4px;
+      }
+      @media (max-width: 1024px) {
+        .values {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .team.grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 560px) {
+        .values {
+          grid-template-columns: 1fr;
+        }
+        .team.grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ---------- Contacts ---------- */
+      .contacts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .map {
+        min-height: 280px;
+        border-radius: 16px;
+        border: 2px dashed rgba(255, 255, 255, 0.25);
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+      }
+      @media (max-width: 920px) {
+        .contacts {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ---------- Footer ---------- */
+      footer {
+        padding: 36px 0 64px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: #e8e8ff;
+      }
+      .foot {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      /* ---------- Фиолетовая тема для блока «О школе» ---------- */
+      .theme-gradient {
+        background: linear-gradient(120deg, var(--grad-a), var(--grad-b));
+        color: #fff;
+      }
+      .theme-gradient .btn {
+        background: #fff;
+        color: var(--purple);
+      }
+      .theme-gradient .btn.ghost {
+        border-color: #fff;
+        color: #fff;
+      }
+
+      /* Истории учеников */
+      .stories-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .story-card {
+        padding: 18px;
+      }
+
+      .story-thumb {
+        margin-bottom: 12px;
+        border-radius: 12px;
+        aspect-ratio: 16 / 9;
+        display: grid;
+        place-items: center;
+        color: #d7d7ff;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      /* брейкпоинты: планшет и мобильный */
+      @media (max-width: 1024px) {
+        .stories-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 640px) {
+        .stories-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container nav">
+        <a href="#top" class="brand" aria-label="SHAM SCHOOL">
+          <!-- <span class="brand-logo"
+            ><span class="brand-mark" aria-hidden="true"></span
+          ></span>
+          <span class="brand-name">SHAM SCHOOL</span> -->
+          <img width="160px" src="/sham_logo.svg" />
+        </a>
+        <!-- <input id="menu" type="checkbox" class="menu-toggle" hidden /> -->
+        <label
+          for="menu"
+          class="menu-toggle btn ghost"
+          style="padding: 6px 12px"
+          >Меню</label
+        >
+        <nav>
+          <ul class="navigation-menu">
+            <li><a href="#works">Работы учеников</a></li>
+            <li><a href="#patron">Стать попечителем</a></li>
+            <li><a href="#reports">Отчётность</a></li>
+            <li><a href="#about">О фонде</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+            <li><a class="btn" href="#patron">Поддержать</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="top" aria-label="Вступление">
+      <div class="bg" aria-hidden="true"></div>
+      <div class="container hero-wrap">
+        <div>
+          <div class="pill">
+            Мы создаём школу, где талант становится будущим
+          </div>
+          <h1>
+            Фонд поддержки учеников
+            <span style="color: var(--lime)">SHAM SCHOOL</span>
+          </h1>
+          <p class="muted">
+            Соединяем <b>искусство, технологии и образование</b>. Наша миссия —
+            чтобы каждый талантливый ребёнок мог учиться бесплатно и реализовать
+            свой потенциал.
+          </p>
+          <div class="stats">
+            <div class="stat">🎓 <b>40</b> учеников на грантах</div>
+            <div class="stat">🤝 <b>50</b> попечителей</div>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap">
+            <a class="btn" href="#patron">Стать попечителем</a>
+            <a class="btn ghost" href="#works">Смотреть работы учеников</a>
+          </div>
+        </div>
+        <div><div class="phone-mock card">Место для обложки / видео</div></div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-card">
+          <div class="about-wrap">
+            <div class="about-text">
+              <div class="eyebrow">О школе</div>
+              <h2 class="about-title">SHAM <span>School</span></h2>
+              <p class="about-subtitle">
+                Школа, где <b>искусство</b> и <b>технологии</b> встречаются в
+                образовании. Помогаем детям создавать фильмы, музыку,
+                арт-проекты и приложения — с менторством и поддержкой
+                сообщества.
+              </p>
+
+              <ul class="about-badges">
+                <li>🎬 Креативность</li>
+                <li>💻 Технологии</li>
+                <li>🤝 Сообщество</li>
+              </ul>
+
+              <a href="#works" class="btn ghost">Смотреть работы</a>
+            </div>
+
+            <div class="about-media">
+              <div class="photo">
+                <!-- поставь своё изображение -->
+                <img src="/raiym.png" alt="Ученики SHAM SCHOOL за проектом" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Works -->
+    <section id="works" aria-labelledby="works-title">
+      <div class="container">
+        <h2 class="title" id="works-title">Работы учеников</h2>
+        <p class="subtitle">
+          Фильмы, музыка, арт, IT и дизайн. Здесь собраны свежие проекты.
+          (Картинки оставлены пустыми — добавьте свои миниатюры).
+        </p>
+
+        <div class="filters">
+          <span class="pill">Все</span>
+          <span class="pill">Кино</span>
+          <span class="pill">Арт</span>
+          <span class="pill">Музыка</span>
+          <span class="pill">IT</span>
+          <span class="pill">Дизайн</span>
+        </div>
+
+        <div class="works grid">
+          <!-- 6 карточек-примеров -->
+          <article class="work card">
+            <div class="thumb">Thumbnail / 1280×800</div>
+            <div class="meta">
+              <h4>Короткий метр «Свет внутри»</h4>
+              <small>Автор: Алия • Куратор: Асем • 2025</small>
+            </div>
+          </article>
+          <article class="work card">
+            <div class="thumb">Thumbnail</div>
+            <div class="meta">
+              <h4>Музыкальный трек «Horizons»</h4>
+              <small>Автор: Тимур • Куратор: Арман • 2025</small>
+            </div>
+          </article>
+          <article class="work card">
+            <div class="thumb">Thumbnail</div>
+            <div class="meta">
+              <h4>AR‑постер «Город идей»</h4>
+              <small>Автор: Диана • Куратор: Алекс • 2025</small>
+            </div>
+          </article>
+          <article class="work card">
+            <div class="thumb">Thumbnail</div>
+            <div class="meta">
+              <h4>Приложение «Study Focus»</h4>
+              <small>Автор: Дастан • Куратор: Нурлан • 2025</small>
+            </div>
+          </article>
+          <article class="work card">
+            <div class="thumb">Thumbnail</div>
+            <div class="meta">
+              <h4>Фото‑серия «Линии города»</h4>
+              <small>Автор: Айгерим • Куратор: Аружан • 2025</small>
+            </div>
+          </article>
+          <article class="work card">
+            <div class="thumb">Thumbnail</div>
+            <div class="meta">
+              <h4>Motion‑дизайн «Dream Loop»</h4>
+              <small>Автор: Руслан • Куратор: Ринат • 2025</small>
+            </div>
+          </article>
+        </div>
+
+        <div style="margin-top: 18px">
+          <a class="btn ghost" href="#">Смотреть все проекты →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stories (мини‑кейсы) -->
+    <section>
+      <div class="container">
+        <h2 class="title">Истории учеников</h2>
+
+        <div class="stories-grid">
+          <article class="card story-card">
+            <div class="story-thumb">Фото</div>
+            <h4>Алия: от идеи к фестивалю</h4>
+            <p class="muted">
+              Сняла первый короткий метр и попала в шорт-лист юношеского
+              фестиваля. Благодарит попечителей за возможность учиться
+              бесплатно.
+            </p>
+          </article>
+
+          <article class="card story-card">
+            <div class="story-thumb">Фото</div>
+            <h4>Расул: музыка и команда</h4>
+            <p class="muted">
+              Собрал музыкальный коллектив, записал дебютный трек в школьной
+              студии и выступил на городском мероприятии.
+            </p>
+          </article>
+
+          <article class="card story-card">
+            <div class="story-thumb">Фото</div>
+            <h4>Диана: первый IT-проект</h4>
+            <p class="muted">
+              Разработала AR-постер и презентовала на школьном демо-дне. Хочет
+              стать продукт-дизайнером.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patron / Donate -->
+    <section id="patron" aria-labelledby="patron-title">
+      <div class="container donate-grid">
+        <div>
+          <h2 class="title" id="patron-title">Стать попечителем</h2>
+          <p class="subtitle">
+            Вы помогаете детям учиться бесплатно и развивать талант. Выберите
+            сумму и периодичность пожертвования.
+          </p>
+
+          <div class="period">
+            <input type="radio" id="once" name="period" checked />
+            <label for="once">Разово</label>
+            <input type="radio" id="monthly" name="period" />
+            <label for="monthly">Ежемесячно</label>
+          </div>
+
+          <div class="amounts" style="margin: 12px 0 18px">
+            <input type="radio" id="a5" name="amount" checked />
+            <label for="a5">5 000 ₸</label>
+            <input type="radio" id="a10" name="amount" />
+            <label for="a10">10 000 ₸</label>
+            <input type="radio" id="a20" name="amount" />
+            <label for="a20">20 000 ₸</label>
+            <input type="radio" id="aX" name="amount" />
+            <label for="aX">Другая сумма</label>
+          </div>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap">
+            <a class="btn" href="#">Оплатить Kaspi</a>
+            <a class="btn" href="#">Halyk</a>
+          </div>
+          <p class="muted" style="margin-top: 10px">
+            После оплаты вы попадёте на страницу благодарности.
+          </p>
+        </div>
+        <aside>
+          <div class="qr card">QR для оплаты / касса</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Reports -->
+    <section id="reports" aria-labelledby="reports-title">
+      <div class="container">
+        <h2 class="title" id="reports-title">Отчётность фонда</h2>
+        <p class="subtitle">
+          Прозрачная статистика: поступления и расходы по месяцам. Ниже — пример
+          таблицы. Прикрепите PDF‑отчёты.
+        </p>
+
+        <div class="table-wrap card" style="padding: 10px">
+          <table aria-label="Таблица отчётов">
+            <thead>
+              <tr>
+                <th>Месяц</th>
+                <th>Поступления</th>
+                <th>Расходы</th>
+                <th>Назначение</th>
+                <th>Документы</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Сентябрь 2025</td>
+                <td>1 850 000 ₸</td>
+                <td>1 320 000 ₸</td>
+                <td>Стипендии, оборудование</td>
+                <td><a class="btn ghost" href="#">PDF</a></td>
+              </tr>
+              <tr>
+                <td>Август 2025</td>
+                <td>1 420 000 ₸</td>
+                <td>980 000 ₸</td>
+                <td>Лагерь, мастер‑классы</td>
+                <td><a class="btn ghost" href="#">PDF</a></td>
+              </tr>
+              <tr>
+                <td>Июль 2025</td>
+                <td>1 030 000 ₸</td>
+                <td>740 000 ₸</td>
+                <td>Студийные расходы</td>
+                <td><a class="btn ghost" href="#">PDF</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="container">
+        <h2 class="title" id="about-title">О фонде</h2>
+        <p class="subtitle">История SHAM, команда и ценности.</p>
+
+        <div class="values">
+          <div class="value">
+            <b>Креативность</b><br /><span class="muted"
+              >смелые идеи, проекты, поиск своего языка</span
+            >
+          </div>
+          <div class="value">
+            <b>Осознанность</b><br /><span class="muted"
+              >рефлексия, дисциплина, ответственность</span
+            >
+          </div>
+          <div class="value">
+            <b>Честность</b><br /><span class="muted"
+              >прозрачность в отчётах и коммуникации</span
+            >
+          </div>
+          <div class="value">
+            <b>Поддержка</b><br /><span class="muted"
+              >сообщество попечителей и менторов</span
+            >
+          </div>
+        </div>
+
+        <h3 style="margin: 26px 0 10px">Команда</h3>
+        <div class="team grid">
+          <div class="person">
+            <div class="avatar">Фото</div>
+            <h4>Имя Фамилия</h4>
+            <small class="muted">Руководитель</small>
+          </div>
+          <div class="person">
+            <div class="avatar">Фото</div>
+            <h4>Имя Фамилия</h4>
+            <small class="muted">Креативный продюсер</small>
+          </div>
+          <div class="person">
+            <div class="avatar">Фото</div>
+            <h4>Имя Фамилия</h4>
+            <small class="muted">Куратор программ</small>
+          </div>
+          <div class="person">
+            <div class="avatar">Фото</div>
+            <h4>Имя Фамилия</h4>
+            <small class="muted">PR и партнёрства</small>
+          </div>
+        </div>
+
+        <h3 style="margin: 26px 0 10px">Партнёры</h3>
+        <div class="grid" style="grid-template-columns: repeat(4, 1fr)">
+          <div
+            class="card"
+            style="
+              height: 80px;
+              border-radius: 12px;
+              display: grid;
+              place-items: center;
+            "
+          >
+            Лого
+          </div>
+          <div
+            class="card"
+            style="
+              height: 80px;
+              border-radius: 12px;
+              display: grid;
+              place-items: center;
+            "
+          >
+            Лого
+          </div>
+          <div
+            class="card"
+            style="
+              height: 80px;
+              border-radius: 12px;
+              display: grid;
+              place-items: center;
+            "
+          >
+            Лого
+          </div>
+          <div
+            class="card"
+            style="
+              height: 80px;
+              border-radius: 12px;
+              display: grid;
+              place-items: center;
+            "
+          >
+            Лого
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacts -->
+    <section id="contacts" aria-labelledby="contacts-title">
+      <div class="container contacts">
+        <div>
+          <h2 class="title" id="contacts-title">Контакты</h2>
+          <p class="muted">
+            Адрес школы: <b>Алматы, ул. М. Козыбаева, 21</b><br />Тел.:
+            <a style="color: #fff" href="tel:+77000000000">+7 700 000 00 00</a
+            ><br />Email:
+            <a style="color: #fff" href="mailto:hello@sham.school"
+              >hello@sham.school</a
+            >
+          </p>
+          <div
+            style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px"
+          >
+            <a class="btn ghost" href="#">Instagram</a>
+            <a class="btn ghost" href="#">TikTok</a>
+            <a class="btn ghost" href="#">YouTube</a>
+          </div>
+        </div>
+        <div class="map card">
+          <iframe
+            src="https://widgets.2gis.com/widget?type=firm&id=70000001091607667&view=map"
+            width="100%"
+            height="100%"
+            frameborder="0"
+            style="border: 0; border-radius: 16px"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container foot">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <!-- <span class="brand-logo"
+            ><span class="brand-mark" aria-hidden="true"></span
+          ></span> -->
+          <img width="64px" src="./Group 1.svg" alt="" />
+          <div>
+            <div style="font-weight: 800">SHAM SCHOOL</div>
+            <small class="muted">© 2025. Все права защищены.</small>
+          </div>
+        </div>
+        <div style="display: flex; gap: 14px; align-items: center">
+          <a class="btn ghost" href="#reports">Публичные отчёты</a>
+          <a class="btn" href="#patron">Поддержать</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
