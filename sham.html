@@ -564,6 +564,29 @@
         border-color: var(--purple);
         background: #f1efff;
       }
+
+      .amounts {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+
+      @media (max-width: 720px) {
+        .amounts {
+          grid-template-columns: repeat(2, 1fr); /* 2 в ряд */
+        }
+      }
+
+      @media (max-width: 420px) {
+        .amounts {
+          grid-template-columns: 1fr; /* по одной кнопке */
+        }
+        .amounts label {
+          font-size: 15px;
+          padding: 12px;
+        }
+      }
+
       .period {
         display: flex;
         gap: 10px;
